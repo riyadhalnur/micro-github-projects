@@ -2,6 +2,7 @@
 
 const got = require('got');
 const qs = require('querystring');
+const url = require('url');
 
 const ENDPOINT = 'https://api.github.com/graphql';
 const USERNAME = process.env.USERNAME;
@@ -10,7 +11,7 @@ const TOKEN = process.env.TOKEN;
 module.exports = async (req, res) => {
   let limit = 2;
   let cursor = null;
-  let queryParams = qs.parse(req.url);
+  let queryParams = qs.parse(url.parse(req.url).query);
 
   if (queryParams.cursor) {
     cursor = queryParams.cursor;
