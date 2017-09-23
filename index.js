@@ -29,6 +29,10 @@ module.exports = async (req, res) => {
           node {
             name
             description
+            url
+            stargazers {
+              totalCount
+            }
             primaryLanguage {
               name
               color
