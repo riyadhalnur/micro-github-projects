@@ -4,8 +4,8 @@
   "description": "A microservice built-in on micro to retrieve all your Github projects that you own",
   "main": "index.js",
   "engines": {
-    "npm": "5.x",
-    "node": "8.x"
+    "npm": ">=5.x",
+    "node": ">=8.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
