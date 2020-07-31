@@ -1,6 +1,6 @@
 'use strict';
 
-const got = require('got');
+const axios = require('axios');
 const qs = require('querystring');
 const url = require('url');
 
@@ -48,13 +48,17 @@ module.exports = async (req, res) => {
     }
   }`;
 
-  let results = await got.post(ENDPOINT, {
-    json: true,
-    body: { query },
+
+  let results = await axios({
+    url: ENDPOINT,
+    method: 'post',
     headers: {
       Authorization: `Bearer ${TOKEN}`
+    },
+    data: {
+      query: query
     }
   });
 
-  res.end(JSON.stringify(results.body));
+  res.end(JSON.stringify(results.data));
 };
